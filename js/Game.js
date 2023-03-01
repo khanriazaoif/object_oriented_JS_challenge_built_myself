@@ -5,7 +5,7 @@ class Game {
         this.ready = false;
     }
 
-    /**
+    /*
      * Creates two player objects
      * @return {array} An array of two player objects.
      */
@@ -14,4 +14,12 @@ class Game {
                          new Player('Player 2', 2, `#e59a13`)];
         return players;
     }
+
+    /*
+     * Gets game ready for play;
+     */
+    startGame(){
+
+    }
+
 }
