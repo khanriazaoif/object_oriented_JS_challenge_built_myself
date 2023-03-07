@@ -14,10 +14,6 @@ class Game {
     }
 
 
-
-
-
-
     /*
      * Creates two player objects
      * @return {array} An array of two player objects.
@@ -44,8 +40,42 @@ class Game {
             } else if (e.key === "ArrowRight") {
                 this.activePlayer.activeToken.moveRight(this.board.columns);
             } else if (e.key === "ArrowDown") {
-                // play token
+                this.playToken();
             }
         }
     }
+
+    /**
+     * Finds Space object to drop Token into, drops TOken
+     */
+    playToken(){
+        let spaces = this.board.spaces;
+        let activeToken = this.activePlayer.activeToken;
+        let targetColumn = spaces[activeToken.columnLocation];
+        let targetSpace = null;
+
+        for (let space of targetColumn) {
+            if (space.token === null){
+                targetSpace = space;
+            }
+        }
+
+        if (targetSpace !== null) {
+            game.ready = false;
+            activeToken.drop(targetSpace);
+        }
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
